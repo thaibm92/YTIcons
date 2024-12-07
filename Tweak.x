@@ -25,11 +25,11 @@ static const NSInteger YTIconsSection = 'ytic';
 
 %hook YTAppSettingsPresentationData
 
-+ (NSArray *)settingsCategoryOrder {
-    NSArray *order = %orig;
-    NSMutableArray *mutableOrder = [order mutableCopy];
-   [mutableOrder insertObject:@(YTIconsSection) atIndex:0];
-    return mutableOrder;
++ (NSArray <NSNumber *> *)settingsCategoryOrder {
+    NSArray <NSNumber *> *order = %orig;
+    NSMutableArray <NSNumber *> *mutableOrder = [order mutableCopy];
+    [mutableOrder insertObject:@(YTIconsSection) atIndex:0];
+    return mutableOrder.copy;
 }
 
 %end
